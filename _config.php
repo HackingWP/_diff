@@ -12,6 +12,9 @@ $_diff->combineLESS = true;
 // Skip ALLCAPS files
 $_diff->skipALLCAPSFiles = true;
 
+// Allows to skip import of some LESS files
+$_diff->skipLESSImports = [];
+
 // Set name:
 $_diff->name = 'underscores';
 

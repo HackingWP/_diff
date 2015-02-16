@@ -8,6 +8,8 @@ class UnderscoreDiff
     public $combineLESS = true;
     public $skipALLCAPSFiles = true;
 
+    public $skipLESSImports = [];
+
     public function run()
     {
         $this->processPath($this->source);
@@ -120,13 +122,17 @@ class UnderscoreDiff
         $less = $this->replace($less);
 
         $less = preg_replace_callback('|(?<!// )@import ["\'](.+?)[\'"];|', function($matches) use ($root) {
+
             $lessPath = $root.'/'.$matches[1].'.less';
             $lessPath = $this->resolveRelativePaths($lessPath);
 
-            echo '      '.str_replace($this->source, '', $lessPath)."\n";
-
             if ($lessPath && file_exists($lessPath)) {
-                $content = $this->processLESS($lessPath);
+                if (!in_array($matches[1], (array) $this->skipLESSImports)) {
+                    echo '      '.str_replace($this->source, '', $lessPath)."\n";
+                    $content = $this->processLESS($lessPath);
+                } else {
+                    $content = '';
+                }
 
                 return "// ".str_replace($this->source, '', $lessPath)."\n{$content}\n";
             }
