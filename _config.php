@@ -18,6 +18,9 @@ $_diff->skipLESSImports = [];
 // Set name:
 $_diff->name = 'underscores';
 
+// Rename to overcome automatic LESS compilation problems
+$_diff->stylesLESSFilename = 'style.less';
+
 // Set destination:
 $_diff->destination = THEMES_ROOT.'/'.$_diff->name;
 

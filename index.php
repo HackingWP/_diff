@@ -5,6 +5,8 @@ class UnderscoreDiff
     public $destination;
     public $source;
     public $name = '_s';
+    public $stylesLESSFilename = 'style.less';
+
     public $combineLESS = true;
     public $skipALLCAPSFiles = true;
 
@@ -78,8 +80,8 @@ class UnderscoreDiff
                 if ($this->combineLESS && $filename === 'less') {
                     $less = $this->processLESS($f.'/style.less');
 
-                    if (!file_put_contents($this->destination.'/style.less', $less)) {
-                        $this->stop('Failed to write `style.less`.');
+                    if (!file_put_contents($this->destination.'/'.$this->stylesLESSFilename, $less)) {
+                        $this->stop('Failed to write LESS output to `'.$this->stylesLESSFilename.'`.');
                     }
 
                     continue;
