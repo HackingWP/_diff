@@ -119,7 +119,7 @@ class UnderscoreDiff
 
         $less = $this->replace($less);
 
-        $less = preg_replace_callback('|@import ["\'](.+?)[\'"];|', function($matches) use ($root) {
+        $less = preg_replace_callback('|(?<!// )@import ["\'](.+?)[\'"];|', function($matches) use ($root) {
             $lessPath = $root.'/'.$matches[1].'.less';
             $lessPath = $this->resolveRelativePaths($lessPath);
 
