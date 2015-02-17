@@ -25,7 +25,7 @@ Enjoy!
 ## 1. Installation
 
 1. Download or clone [_s-LESS](https://github.com/mrpritchett/_s-LESS) theme and install it by copying/uploading to `/wp-content/themes`
-1. Download and extract [zip of this project](./archive/develop.zip) or use `git clone` command
+1. Download and extract [zip of this project](../../archive/develop.zip) or use `git clone` command
 1. Upload `_diff` project directory next to the `_s-LESS` into `/wp-content/themes`
 1. Navigate to `\_diff` in the browser, e.g. <http://www.example.com/wp-content/themes/\_diff>, the `config.php` should be created.
 1. Edit `config.php`
