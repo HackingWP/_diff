@@ -21,6 +21,9 @@ $_diff->name = 'underscores';
 // Rename to overcome automatic LESS compilation problems
 $_diff->stylesLESSFilename = 'style.less';
 
+// Write theme header to style.css (allows use as parent theme)
+$_diff->writeThemeStyleCSS = true;
+
 // Set destination:
 $_diff->destination = THEMES_ROOT.'/'.$_diff->name;
 
