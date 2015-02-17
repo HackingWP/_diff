@@ -10,6 +10,7 @@ class UnderscoreDiff
     public $combineLESS = true;
     public $skipALLCAPSFiles = true;
 
+    public $removeThemeHeader = true;
     public $writeThemeStyleCSS = true;
 
     public $skipLESSImports = [];
@@ -129,6 +130,10 @@ class UnderscoreDiff
             if (!file_put_contents($this->destination.'/style.css', $this->replace($css))) {
                 $this->stop('Failed to write theme `style.css`');
             }
+        }
+
+        if ($this->removeThemeHeader && strstr($less, 'Theme Name:')) {
+            $less = substr($less, strpos($less, '*/') + 2);
         }
 
         $less = $this->replace($less);
