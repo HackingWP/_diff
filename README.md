@@ -13,6 +13,8 @@ The LESS files are combined into one to ease reading and editing when pulled int
 
 Only files in lowercase are included by default. To include all set `$_diff->skipALLCAPSFiles = false;` in `config.php`.
 
+See comments in [_config.php](_config.php) for more options.
+
 Enjoy!
 
 [@martin_adamko](https://twitter.com/martin_adamko)
